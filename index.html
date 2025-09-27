@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join CodeLab, a school club teaching coding and PC skills in Python, JavaScript, C++, HTML, and CSS.">
+    <meta name="keywords" content="CodeLab, coding, programming, school club, Python, JavaScript, technology">
+    <title>CodeLab Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6200;
+            --background-dark: #000;
+            --text-light: #fff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 60px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        @keyframes smoothScroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(0); }
+        }
+
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background: var(--primary-color);
+            padding: 6px;
+            border-radius: 5px;
+        }
+
+        .language-selector select {
+            background: var(--text-light);
+            border: none;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+            color: var(--background-dark);
+            font-size: 0.85em;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        section {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            border-bottom: 10px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 98, 0, 0.3);
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(255, 98, 0, 0.2));
+            z-index: 1;
+        }
+
+        section > * {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, var(--text-light), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 1.3em;
+            font-weight: 300;
+            max-width: 650px;
+            margin: 0 auto 15px;
+            line-height: 1.8;
+            color: var(--text-light);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote {
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.1em;
+            max-width: 700px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+            margin: 15px auto;
+            color: var(--text-light);
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--background-dark), #1a1a1a);
+            text-align: center;
+            padding: 30px 15px;
+            color: var(--text-light);
+        }
+
+        footer h2 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between links */
+            flex-wrap: wrap; /* Wraps links on smaller screens */
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        #section1 {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1516321310767-2870b1f0d4d2');
+            background-color: #1a1a1a;
+        }
+
+        #section2 {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f');
+            background-color: #1a1a1a;
+        }
+
+        #section3 {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c');
+            background-color: #1a1a1a;
+        }
+
+        #section4 {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2');
+            background-color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.6em;
+            }
+            p {
+                font-size: 1em;
+                padding: 0 10px;
+            }
+            .quote {
+                font-size: 0.9em;
+            }
+            section {
+                min-height: 80vh;
+                background-attachment: scroll;
+                padding: 20px 15px;
+            }
+            .language-selector {
+                top: 5px;
+                right: 5px;
+                padding: 4px;
+            }
+            .language-selector select {
+                font-size: 0.75em;
+            }
+            footer {
+                padding: 25px 10px;
+            }
+            footer h2 {
+                font-size: 1em;
+            }
+            .footer-links a {
+                font-size: 0.8em;
+            }
+            .footer-links {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .language-selector {
+                top: 3px;
+                right: 3px;
+                padding: 2px;
+            }
+            .language-selector select {
+                font-size: 0.7em;
+            }
+            .footer-links {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <select id="languageSelect" onchange="changeLanguage()" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="kk">Қазақша</option>
+        </select>
+    </div>
+    <div class="container">
+        <section id="section1">
+            <h1 id="title1">Welcome to <span class="highlight">CodeLab</span>!</h1>
+            <p id="text1">Join our school club to unlock the power of technology! <span class="highlight">CodeLab</span> is your gateway to mastering efficient PC use and diving into the exciting world of coding. Whether you're a beginner or an enthusiast, we’re here to help you learn and grow.</p>
+        </section>
+        <section id="section2">
+            <h1 id="title2">What We <span class="highlight">Teach</span></h1>
+            <p id="text2">At <span class="highlight">CodeLab</span>, we cover essential skills for using your PC effectively, from file management to productivity tools. Plus, we teach coding in popular languages like <span class="highlight">Python, JavaScript, C++, HTML, and CSS</span>—building everything from websites to games and apps!</p>
+        </section>
+        <section id="section3">
+            <h1 id="title3">Why Join <span class="highlight">CodeLab</span>?</h1>
+            <p id="text3">Be part of a fun, collaborative community where you’ll gain hands-on experience, work on real projects, and prepare for a tech-driven future. <span class="highlight">CodeLab</span> equips you with skills for school, hobbies, and even future careers in technology!</p>
+            <blockquote id="quote" class="quote">"We must modernise the economy through large-scale digitalisation and the active integration of artificial intelligence technologies." – President Kassym-Jomart Tokayev</blockquote>
+        </section>
+        <section id="section4">
+            <h1 id="title4">What Will We <span class="highlight">Teach</span> Students?</h1>
+            <p id="text4">Everything we know ourselves, starting from the basics of programming, Discord and Telegram bots, databases, Blender, websites, different programming languages, and we'll even teach how to make video games! The more people participate, the better, because we can create large projects with 10+ people. The projects themselves will greatly help in programming skills and teamwork.</p>
+        </section>
+    </div>
+    <footer>
+        <h2 id="contactTitle">Get in Touch</h2>
+        <div class="footer-links">
+            <a href="https://instagram.com/bhs.codelab" target="_blank" id="insta">Instagram: bhs.codelab</a>
+            <a href="https://t.me/dyavalo" target="_blank" id="telegram">Telegram: dyavalo</a>
+            <a href="https://wa.me/87785293526" target="_blank" id="whatsapp">WhatsApp: 8 778 529 35 26</a>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                title1: "Welcome to <span class=\"highlight\">CodeLab</span>!",
+                text1: "Join our school club to unlock the power of technology! <span class=\"highlight\">CodeLab</span> is your gateway to mastering efficient PC use and diving into the exciting world of coding. Whether you're a beginner or an enthusiast, we’re here to help you learn and grow.",
+                title2: "What We <span class=\"highlight\">Teach</span>",
+                text2: "At <span class=\"highlight\">CodeLab</span>, we cover essential skills for using your PC effectively, from file management to productivity tools. Plus, we teach coding in popular languages like <span class=\"highlight\">Python, JavaScript, C++, HTML, and CSS</span>—building everything from websites to games and apps!",
+                title3: "Why Join <span class=\"highlight\">CodeLab</span>?",
+                text3: "Be part of a fun, collaborative community where you’ll gain hands-on experience, work on real projects, and prepare for a tech-driven future. <span class=\"highlight\">CodeLab</span> equips you with skills for school, hobbies, and even future careers in technology!",
+                quote: "\"We must modernise the economy through large-scale digitalisation and the active integration of artificial intelligence technologies.\" – President Kassym-Jomart Tokayev",
+                title4: "What Will We <span class=\"highlight\">Teach</span> Students?",
+                text4: "Everything we know ourselves, starting from the basics of programming, Discord and Telegram bots, databases, Blender, websites, different programming languages, and we'll even teach how to make video games! The more people participate, the better, because we can create large projects with 10+ people. The projects themselves will greatly help in programming skills and teamwork.",
+                contactTitle: "Get in Touch",
+                insta: "Instagram: bhs.codelab",
+                telegram: "Telegram: dyavalo",
+                whatsapp: "WhatsApp: 8 778 529 35 26"
+            },
+            ru: {
+                title1: "Добро пожаловать в <span class=\"highlight\">CodeLab</span>!",
+                text1: "Присоединяйтесь к нашему школьному клубу, чтобы раскрыть потенциал технологий! <span class=\"highlight\">CodeLab</span> — это ваш путь к освоению эффективного использования ПК и погружению в увлекательный мир программирования. Независимо от того, новичок вы или энтузиаст, мы здесь, чтобы помочь вам учиться и развиваться.",
+                title2: "Что мы <span class=\"highlight\">преподаем</span>",
+                text2: "В <span class=\"highlight\">CodeLab</span> мы охватываем основные навыки эффективного использования вашего ПК, от управления файлами до инструментов продуктивности. Кроме того, мы учим программированию на популярных языках, таких как <span class=\"highlight\">Python, JavaScript, C++, HTML и CSS</span> — создавая все, от веб-сайтов до игр и приложений!",
+                title3: "Почему присоединиться к <span class=\"highlight\">CodeLab</span>?",
+                text3: "Станьте частью веселого, совместного сообщества, где вы получите практический опыт, поработаете над реальными проектами и подготовитесь к будущему, управляемому технологиями. <span class=\"highlight\">CodeLab</span> вооружит вас навыками для школы, хобби и даже будущей карьеры в технологиях!",
+                quote: "\"Мы должны модернизировать экономику через масштабную цифровизацию и активную интеграцию технологий искусственного интеллекта.\" — Президент Касым-Жомарт Токаев",
+                title4: "Чему мы будем <span class=\"highlight\">учить</span> учеников?",
+                text4: "Всё что сами знаем, начиная с базы программирования, дискорд и телеграм ботов, базаданных, blender, сайты, разные языки программирования, и даже научим делать видеоигры! Чем больше людей будет учавствовать тем лучше, ведь можно будет создавать большие проекты на 10+ людей. Сами проекты сильно помогут в умении программировать и в командной работе.",
+                contactTitle: "Связаться",
+                insta: "Instagram: bhs.codelab",
+                telegram: "Telegram: dyavalo",
+                whatsapp: "WhatsApp: 8 778 529 35 26"
+            },
+            kk: {
+                title1: "<span class=\"highlight\">CodeLab</span>-қа қош келдіңіз!",
+                text1: "Мектеп клубымызға қосылыңыз және технологияның күшін ашыңыз! <span class=\"highlight\">CodeLab</span> — сіздің ПК-ді тиімді пайдалану мен кодтаудың қызықты әлеміне ену жолыңыз. Жаңадан бастаушы болсаңыз да, энтузиаст болсаңыз да, біз сіздің оқу және дамуға көмектесеміз.",
+                title2: "Біз не <span class=\"highlight\">үйретеміз</span>",
+                text2: "<span class=\"highlight\">CodeLab</span>-та біз сіздің ПК-ңізді тиімді пайдалану үшін негізгі дағдыларды қамтимыз, файлдарды басқарудан өнімділік құралдарына дейін. Сонымен қатар, біз <span class=\"highlight\">Python, JavaScript, C++, HTML және CSS</span> сияқты танымал тілдерде кодтауды үйретеміз — веб-сайттардан ойындар мен қолданбаларға дейін барлығын құрамыз!",
+                title3: "<span class=\"highlight\">CodeLab</span>-қа неге қосылу керек?",
+                text3: "Қызықты, бірлескен қауымдастықтың бөлігі болыңыз, онда сіз тәжірибелік тәжірибе аласыз, нақты жобалар үстінде жұмыс істейсіз және технологияға негізделген болашаққа дайындаласыз. <span class=\"highlight\">CodeLab</span> мектепке, хоббиге және тіпті технология саласындағы болашақ мансапқа арналған дағдылармен қаруландырады!",
+                quote: "\"Біз экономиканы ірі масштабты цифрландыру және жасанды интеллект технологияларын белсенді енгізу арқылы жаңғыртуымыз керек.\" — Президент Қасым-Жомарт Тоқаев",
+                title4: "Оқушыларды неге <span class=\"highlight\">үйретеміз</span>?",
+                text4: "Өзіміз білетіннің бәрін, бағдарламалаудың негіздерінен бастап, Discord және Telegram боттары, дерекқорлар, Blender, веб-сайттар, әртүрлі бағдарламалау тілдері, және тіпті видео ойындар жасауды үйретеміз! Қанша адам қатысса, соғұрлым жақсы, өйткені 10+ адамдық үлкен жобалар құра аламыз. Жобалардың өзі бағдарламалау дағдыларына және командалық жұмысқа қатты көмектеседі.",
+                contactTitle: "Бізбен байланыс",
+                insta: "Instagram: bhs.codelab",
+                telegram: "Telegram: dyavalo",
+                whatsapp: "WhatsApp: 8 778 529 35 26"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelect').value;
+            localStorage.setItem('preferredLanguage', lang);
+            const trans = translations[lang] || translations['en'];
+            document.getElementById('title1').innerHTML = trans.title1;
+            document.getElementById('text1').innerHTML = trans.text1;
+            document.getElementById('title2').innerHTML = trans.title2;
+            document.getElementById('text2').innerHTML = trans.text2;
+            document.getElementById('title3').innerHTML = trans.title3;
+            document.getElementById('text3').innerHTML = trans.text3;
+            document.getElementById('quote').innerHTML = trans.quote;
+            document.getElementById('title4').innerHTML = trans.title4;
+            document.getElementById('text4').innerHTML = trans.text4;
+            document.getElementById('contactTitle').innerHTML = trans.contactTitle;
+            document.getElementById('insta').innerHTML = trans.insta;
+            document.getElementById('telegram').innerHTML = trans.telegram;
+            document.getElementById('whatsapp').innerHTML = trans.whatsapp;
+            document.documentElement.lang = lang;
+        }
+
+        document.getElementById('languageSelect').value = localStorage.getItem('preferredLanguage') || 'en';
+        changeLanguage();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
